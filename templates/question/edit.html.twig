@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Question{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Edit Question</h2>
+      {{ include('question/_form.html.twig', {'button_label': 'Update'}) }}
+      <a href="{{ path('question_index') }}">back to list</a>
+      {{ include('question/_delete_form.html.twig') }}
+    </div>
+    <div class="col-md-6">
+      <h2>Add answer</h2>
+      {{ include('answer/_form.html.twig', {'button_label': 'Add'}) }}
+      {% if question.getAnswers | length > 0 %}
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>Intitulé</th>
+          <th>Réponse</th>
+        </tr>
+        {% for answer in question.getAnswers %}
+        <tr>
+          <td>{{answer.getLabel}}</td>
+          <td>
+            {{answer.getGood ? 'Bonne' : 'Mauvaise'}}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+          <span>Aucune réponse associée à cette question...</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

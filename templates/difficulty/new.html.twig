@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Difficulty{% endblock %}
+
+{% block body %}
+    <h1>Create new Difficulty</h1>
+
+    {{ include('difficulty/_form.html.twig') }}
+
+    <a href="{{ path('difficulty_index') }}">back to list</a>
+{% endblock %}

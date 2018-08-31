@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Difficulty{% endblock %}
+
+{% block body %}
+    <h1>Difficulty</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ difficulty.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ difficulty.label }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('difficulty_index') }}">back to list</a>
+
+    <a href="{{ path('difficulty_edit', {'id': difficulty.id}) }}">edit</a>
+
+    {{ include('difficulty/_delete_form.html.twig') }}
+{% endblock %}
